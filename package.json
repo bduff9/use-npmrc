@@ -1,0 +1,93 @@
+{
+  "name": "use-npmrc",
+  "version": "1.0.0",
+  "description": "Move your .npmrc file into place before accessing private dependencies",
+  "keywords": [
+    "github",
+    "npmrc",
+    "node",
+    "npm"
+  ],
+  "homepage": "https://www.asitewithnoname.com/",
+  "license": "MIT",
+  "author": "Brian Duffey <brian.e.duffey@gmail.com>",
+  "contributors": [],
+  "main": "lib/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bduff9/use-npmrc"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/ --ext .js,.ts",
+    "lint:fix": "eslint src/ --ext .js,.ts --fix",
+    "lint:script": "scriptlint && npmPkgJsonLint .",
+    "lint:script:fix": "scriptlint --fix",
+    "package": "ncc build --source-map --license licenses.txt",
+    "setup": "npx typesync && npm i && npm prune",
+    "test": "jest --passWithNoTests",
+    "test:ci": "jest --ci --reporters='default' --reporters='./github-actions-reporter'",
+    "test:coverage": "jest --coverage --env=jsdom --coverage",
+    "test:watch": "jest --watch",
+    "typeCheck": "tsc",
+    "validate": "npm run lint && tsc --noEmit && npx ts-prune"
+  },
+  "config": {},
+  "dependencies": {
+    "@actions/core": "1.2.6"
+  },
+  "devDependencies": {
+    "@types/eslint": "7.2.6",
+    "@types/js-yaml": "4.0.0",
+    "@types/node": "14.14.28",
+    "@typescript-eslint/eslint-plugin": "4.15.1",
+    "@typescript-eslint/parser": "4.15.1",
+    "@vercel/ncc": "0.27.0",
+    "eslint": "7.20.0",
+    "eslint-plugin-github": "4.1.1",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jest": "24.1.5",
+    "eslint-plugin-prettierx": "0.17.1",
+    "husky": "5.0.9",
+    "jest": "26.6.3",
+    "jest-circus": "26.6.3",
+    "js-yaml": "4.0.0",
+    "lint-staged": "10.5.4",
+    "npm-package-json-lint": "5.1.0",
+    "scriptlint": "2.1.2",
+    "sync-dotenv": "2.6.2",
+    "ts-jest": "26.5.1",
+    "typescript": "4.1.5"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "private": true,
+  "husky": {
+    "hooks": {
+      "post-merge": "npm run setup",
+      "pre-commit": "lint-staged && npm run env",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --quiet --fix",
+      "git add"
+    ],
+    "*.{md,json}": [
+      "prettierx --write",
+      "git add"
+    ],
+    "package.json": [
+      "scriptlint --fix",
+      "npmPkgJsonLint ."
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "setupFiles": [
+      "<rootDir>setupTests.js"
+    ]
+  }
+}

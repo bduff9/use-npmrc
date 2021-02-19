@@ -18,7 +18,7 @@ This action creates a .npmrc file during Github Actions.  This is useful when ne
 
 ```Yaml
   - name: Use .npmrc
-    uses: bduff9/use-npmrc@v1
+    uses: bduff9/use-npmrc@v1.1
     with:
       dot-npmrc: ${{ secrets.DOT_NPMRC }}
 ```

@@ -1,4 +1,6 @@
 name: "Use .npmrc"
+icon: "align-center"
+color: "blue"
 description: "Create your .npmrc when running CI/CD Github Actions"
 author: "Brian Duffey"
 inputs:

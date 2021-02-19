@@ -1,6 +1,4 @@
 name: "Use .npmrc"
-icon: "align-center"
-color: "blue"
 description: "Create your .npmrc when running CI/CD Github Actions"
 author: "Brian Duffey"
 inputs:
@@ -14,3 +12,6 @@ inputs:
 runs:
   using: "node12"
   main: "dist/index.js"
+branding:
+  icon: "align-center"
+  color: "blue"

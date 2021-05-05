@@ -34,7 +34,7 @@
   },
   "config": {},
   "dependencies": {
-    "@actions/core": "1.2.6"
+    "@actions/core": "1.2.7"
   },
   "devDependencies": {
     "@types/eslint": "7.2.6",

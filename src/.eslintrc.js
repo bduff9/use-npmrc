@@ -14,11 +14,8 @@ module.exports = {
 		ecmaVersion: 9,
 		sourceType: 'module',
 	},
-	plugins: ['import', 'jest', 'prettierx', '@typescript-eslint'],
+	plugins: ['import', 'jest', '@typescript-eslint'],
 	settings: {
-		prettierx: {
-			usePrettierrc: false,
-		},
 	},
 	extends: [
 		'eslint:recommended',
@@ -26,21 +23,8 @@ module.exports = {
 		'plugin:import/errors',
 		'plugin:import/typescript',
 		'plugin:import/warnings',
-		'plugin:prettierx/@typescript-eslint',
-		'plugin:prettierx/standardx',
 	],
 	rules: {
-		'prettierx/options': [
-			2,
-			{
-				alignObjectProperties: false,
-				semi: true,
-				singleQuote: true,
-				spaceBeforeFunctionParen: true,
-				trailingComma: 'all',
-				useTabs: true,
-			},
-		],
 		'linebreak-style': 'off',
 		'no-console': 'off',
 		'no-constant-condition': 'off',

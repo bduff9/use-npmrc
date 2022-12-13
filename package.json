@@ -1,6 +1,6 @@
 {
   "name": "use-npmrc",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Move your .npmrc file into place before accessing private dependencies",
   "keywords": [
     "github",
@@ -15,7 +15,7 @@
   "main": "lib/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bduff9/use-npmrc"
+    "url": "https://github.com/bramarcade/use-npmrc"
   },
   "scripts": {
     "build": "tsc",
@@ -34,7 +34,7 @@
   },
   "config": {},
   "dependencies": {
-    "@actions/core": "1.2.6"
+    "@actions/core": "^1.10.0"
   },
   "devDependencies": {
     "@types/eslint": "7.2.6",
@@ -47,7 +47,6 @@
     "eslint-plugin-github": "4.1.1",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jest": "24.1.5",
-    "eslint-plugin-prettierx": "0.17.1",
     "husky": "5.0.9",
     "jest": "26.6.3",
     "jest-circus": "26.6.3",
@@ -55,12 +54,12 @@
     "lint-staged": "10.5.4",
     "npm-package-json-lint": "5.1.0",
     "scriptlint": "2.1.2",
-    "sync-dotenv": "2.6.2",
+    "sync-dotenv": "^1.0.0",
     "ts-jest": "26.5.1",
     "typescript": "4.1.5"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "private": true,
   "husky": {
@@ -76,7 +75,7 @@
       "git add"
     ],
     "*.{md,json}": [
-      "prettierx --write",
+      "",
       "git add"
     ],
     "package.json": [

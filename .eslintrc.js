@@ -1,46 +1,38 @@
 module.exports = {
 	root: true,
 	env: {
-		es6: true,
-		'jest/globals': true,
+		es2021: true,
+		jest: true,
 		node: true,
 	},
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaFeatures: {
 			experimentalObjectRestSpread: true,
-			warnOnUnsupportedTypeScriptVersion: false,
 		},
-		ecmaVersion: 9,
+		warnOnUnsupportedTypeScriptVersion: false,
+		ecmaVersion: 'latest',
+		project: './tsconfig.json',
 		sourceType: 'module',
 	},
-	plugins: ['import', 'jest', 'prettierx', '@typescript-eslint'],
-	settings: {
-		prettierx: {
-			usePrettierrc: false,
-		},
-	},
+	plugins: [
+		'@typescript-eslint',
+		'regexp',
+		'import',
+		'prettier',
+	],
+	settings: {},
 	extends: [
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
+		'plugin:regexp/recommended',
 		'plugin:import/errors',
 		'plugin:import/typescript',
 		'plugin:import/warnings',
-		'plugin:prettierx/@typescript-eslint',
-		'plugin:prettierx/standardx',
+		'plugin:prettier/recommended',
 	],
 	rules: {
-		'prettierx/options': [
-			2,
-			{
-				alignObjectProperties: false,
-				semi: true,
-				singleQuote: true,
-				spaceBeforeFunctionParen: true,
-				trailingComma: 'all',
-				useTabs: true,
-			},
-		],
+		'prettier/prettier': 'error',
 		'linebreak-style': 'off',
 		'no-console': 'off',
 		'no-constant-condition': 'off',
@@ -103,11 +95,20 @@ module.exports = {
 				next: 'export',
 			},
 		],
+		curly: ['error', 'multi-line'],
 		'@typescript-eslint/indent': 'off',
 		'@typescript-eslint/prefer-interface': 'off',
 		'@typescript-eslint/interface-name-prefix': 'off',
 		'@typescript-eslint/ban-ts-comment': 'warn',
 		'@typescript-eslint/explicit-function-return-type': 'error',
+    '@typescript-eslint/consistent-type-imports': [
+			'error',
+			{
+				prefer: 'type-imports',
+				disallowTypeAnnotations: true,
+				fixStyle: 'separate-type-imports',
+			},
+		],
 		'prefer-template': 'error',
 	},
 };

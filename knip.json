@@ -2,12 +2,16 @@
   "entry": [
     "src/main.ts"
   ],
-  "project": [
-    "src/**/*.ts"
+  "exclude": [
+    "dependencies",
+    "unlisted"
   ],
   "ignore": [
     "github-actions-reporter.js",
     "dist/**/*.js",
     "lib/**/*.js"
+  ],
+  "project": [
+    "src/**/*.ts"
   ]
 }

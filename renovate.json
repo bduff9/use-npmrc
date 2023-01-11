@@ -4,5 +4,7 @@
   ],
   "assignees": ["bduff9"],
   "supportPolicy": ["LTS"],
-  "baseBranches": ["develop"]
+  "baseBranches": [
+    "main"
+  ]
 }

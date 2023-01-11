@@ -1,8 +1,13 @@
 {
-  "entryFiles": [
+  "entry": [
     "src/main.ts"
   ],
-  "projectFiles": [
+  "project": [
     "src/**/*.ts"
+  ],
+  "ignore": [
+    "github-actions-reporter.js",
+    "dist/**/*.js",
+    "lib/**/*.js"
   ]
 }
